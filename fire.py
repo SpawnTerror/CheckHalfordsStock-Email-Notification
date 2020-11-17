@@ -14,13 +14,15 @@ email = config.get('MAIN', 'email')
 
 # variables
 print('Initializing variables, Halfords url and Firefox driver...\n')
+fireFoxOptions = webdriver.FirefoxOptions()
+fireFoxOptions.set_headless()
 path_to_firefox = 'D:/Programming/geckodriver.exe'
 web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-titan-mens-full-suspension-mountain-bike---s-m-l-frames-green%2Fgrey-850633.html'
 
 def scrap():
 
     # initialize firefox, load page
-    driver = webdriver.Firefox(executable_path=path_to_firefox)
+    driver = webdriver.Firefox(executable_path=path_to_firefox, options=fireFoxOptions)
     driver.maximize_window()
     driver.get(web_path)
     time.sleep(2)
@@ -43,7 +45,7 @@ def scrap():
 
     # read status once
     answer = driver.find_element_by_class_name("b-product-home__error").text
-
+    print(answer)
 
     # answer = "Dupa" test if found stock
 
