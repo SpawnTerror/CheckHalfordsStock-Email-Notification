@@ -15,7 +15,7 @@ email = config.get('MAIN', 'email')
 # variables
 print('Initializing variables, Halfords url and Firefox driver...\n')
 fireFoxOptions = webdriver.FirefoxOptions()
-fireFoxOptions.set_headless()
+# fireFoxOptions.set_headless()
 path_to_firefox = 'D:/Programming/geckodriver.exe'
 web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-titan-mens-full-suspension-mountain-bike---s-m-l-frames-green%2Fgrey-850633.html'
 
@@ -47,10 +47,8 @@ def scrap():
     answer = driver.find_element_by_class_name("b-product-home__error").text
     print(answer)
 
-    # answer = "Dupa" test if found stock
+    answer = "xxx" # for 
 
-
-    # set return value 
     if answer == "This product is not available for Home Delivery.":
         print('Not in stock yet.')
         driver.quit()
@@ -69,6 +67,12 @@ if __name__ == '__main__':
         time.sleep(5)
         print('Sleeping for 5 seconds.')
     print('Found some stock. Exiting just now.')
+
+
+
+
+
+
 
 
 '''
