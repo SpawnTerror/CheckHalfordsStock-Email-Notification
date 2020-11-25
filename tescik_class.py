@@ -71,8 +71,8 @@ class bocik(object):
     def akcja(self):
 
         # --- for testing only, first one not in stock (target), second one is random in stock (test) ---
-        # self.web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-titan-mens-full-suspension-mountain-bike---s-m-l-frames-green%2Fgrey-850633.html'
-        self.web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-vengeance-mens-mountain-bike-2020---black---xs-s-m-l-xl-frames-340910.html'
+        self.web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-titan-mens-full-suspension-mountain-bike---s-m-l-frames-green%2Fgrey-850633.html'
+        # self.web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-vengeance-mens-mountain-bike-2020---black---xs-s-m-l-xl-frames-340910.html'
         # ------------------------
         self.driver = webdriver.Firefox(executable_path=self.path_to_firefox, options=self.fireFoxOptions)
         self.driver.set_window_position(0, 0)
