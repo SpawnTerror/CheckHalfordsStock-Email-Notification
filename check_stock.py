@@ -52,9 +52,7 @@ class bocik(object):
         self.path_to_firefox = '/home/spawn/programming/halfords/drivers/geckodriver'
         # self.web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-titan-mens-full-suspension-mountain-bike---s-m-l-frames-green%2Fgrey-850633.html'
         
-    def screenshoted(self, file_name, comment):
-        self.driver.save_screenshot(self.file_name)
-        bocik.oprint(self.comment)
+    
 
 
     def check_system(self):
@@ -71,6 +69,8 @@ class bocik(object):
             bocik.oprint(f"Only {bcolors.OKGREEN}Windows{bcolors.ENDC} and {bcolors.OKGREEN}Linux{bcolors.ENDC} is supported.\n")
             run = "False"
         return run
+    
+
 
     def akcja(self):
 
@@ -85,15 +85,27 @@ class bocik(object):
         self.driver.get(self.web_path)
         time.sleep(2)
 
+        # screening
+        self.driver.save_screenshot('1windowopen.png')
+
         self.driver.execute_script("window.scrollTo(0, 300)")
         time.sleep(2)
+
+        # screening
+        self.driver.save_screenshot('2scrolleddown.png')
 
         size_choice = self.driver.find_element_by_xpath("//div[@id='productInfoBlock']/div[5]/div/div/div/div/ul/li[2]/a/span")
         size_choice.click()
         time.sleep(2)
 
+        # screening
+        self.driver.save_screenshot('3sizechoiceclicked.png')
+
         self.driver.execute_script("window.scrollTo(0, 1080)")
         time.sleep(2)
+
+        # screening
+        self.driver.save_screenshot('4scrolledtotextbox.png')
 
         address_input = self.driver.find_element_by_xpath("//div[@id='productInfoBlock']/div[5]/div[3]/div/div/div/form/div/div/div/div/div/input")
         address_input.send_keys('Carlisle\n')
@@ -101,6 +113,10 @@ class bocik(object):
         submit_click.click()
         time.sleep(4)
         
+        # screening
+        self.driver.save_screenshot('5enteringcarlisle.png')
+
+
         while self.not_in_stock == True:
             try:
                 add_to_basket = self.driver.find_element_by_xpath("//div[@id='productInfoBlock']/div[5]/div[3]/div/div/div[3]/div/div/div[2]/div[2]/button")
@@ -109,6 +125,8 @@ class bocik(object):
                 bocik.oprint(f"{bcolors.WARNING}Product in stock. Sending email notification!{bcolors.ENDC}")
                 haha.got_it(announce = "Closing web scrapper script, exiting...")
                 run = "False"
+                # screening
+                self.driver.save_screenshot('6instock.png')
                 self.driver.quit()
                 return run
 
@@ -118,6 +136,8 @@ class bocik(object):
                 self.driver.quit()
                 bocik.oprint(f"{bcolors.OKBLUE}Sleeping for {sleeping_time/60} minutes.{bcolors.ENDC} \n")
                 time.sleep(sleeping_time)
+                # screening
+                self.driver.save_screenshot('6notinstock.png')
                 run = "True"
                 return run
 
@@ -125,7 +145,6 @@ class bocik(object):
         self.announce = announce
         bocik.oprint(self.announce)
         bocik.oprint(f"{bcolors.OKBLUE}Finished...{bcolors.ENDC}\n")  
-
 
 
 # VARIABLES
