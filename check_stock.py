@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# SpawnTerror 2020
 
 from selenium import webdriver
 import platform
@@ -40,7 +41,9 @@ class bocik(object):
         self.fireFoxOptions = webdriver.FirefoxOptions()
         self.fireFoxOptions.add_argument("--headless")
         self.path_to_firefox = 'D:/Programming/geckodriver.exe'
-        # self.web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-titan-mens-full-suspension-mountain-bike---s-m-l-frames-green%2Fgrey-850633.html'
+
+        # here is the link for the item
+        self.web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-titan-mens-full-suspension-mountain-bike---s-m-l-frames-green%2Fgrey-850633.html'
         
     def init_linux(self):
         clear = lambda: os.system('clear')
@@ -50,11 +53,10 @@ class bocik(object):
         self.fireFoxOptions = webdriver.FirefoxOptions()
         self.fireFoxOptions.add_argument("--headless")
         self.path_to_firefox = '/home/spawn/programming/halfords/drivers/geckodriver'
-        # self.web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-titan-mens-full-suspension-mountain-bike---s-m-l-frames-green%2Fgrey-850633.html'
+
+        # here is the link for the item
+        self.web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-titan-mens-full-suspension-mountain-bike---s-m-l-frames-green%2Fgrey-850633.html'
         
-    
-
-
     def check_system(self):
         self.operating_system = platform.system()
         
@@ -70,13 +72,11 @@ class bocik(object):
             run = "False"
         return run
     
-
-
     def akcja(self):
 
         # --- for testing only, first one not in stock (target), second one is random in stock (test) ---
         # self.web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-titan-mens-full-suspension-mountain-bike---s-m-l-frames-green%2Fgrey-850633.html'
-        self.web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-vengeance-mens-mountain-bike-2020---black---xs-s-m-l-xl-frames-340910.html'
+        # self.web_path = 'https://www.halfords.com/bikes/mountain-bikes/carrera-vengeance-mens-mountain-bike-2020---black---xs-s-m-l-xl-frames-340910.html'
         # ------------------------
 
         self.driver = webdriver.Firefox(executable_path=self.path_to_firefox, options=self.fireFoxOptions)
@@ -116,7 +116,6 @@ class bocik(object):
         # screening
         self.driver.save_screenshot('5enteringcarlisle.png')
 
-
         while self.not_in_stock == True:
             try:
                 add_to_basket = self.driver.find_element_by_xpath("//div[@id='productInfoBlock']/div[5]/div[3]/div/div/div[3]/div/div/div[2]/div[2]/button")
@@ -125,8 +124,10 @@ class bocik(object):
                 bocik.oprint(f"{bcolors.WARNING}Product in stock. Sending email notification!{bcolors.ENDC}")
                 haha.got_it(announce = "Closing web scrapper script, exiting...")
                 run = "False"
+
                 # screening
                 self.driver.save_screenshot('6instock.png')
+
                 self.driver.quit()
                 return run
 
@@ -136,8 +137,10 @@ class bocik(object):
                 self.driver.quit()
                 bocik.oprint(f"{bcolors.OKBLUE}Sleeping for {sleeping_time/60} minutes.{bcolors.ENDC} \n")
                 time.sleep(sleeping_time)
+
                 # screening
                 self.driver.save_screenshot('6notinstock.png')
+
                 run = "True"
                 return run
 
@@ -145,7 +148,6 @@ class bocik(object):
         self.announce = announce
         bocik.oprint(self.announce)
         bocik.oprint(f"{bcolors.OKBLUE}Finished...{bcolors.ENDC}\n")  
-
 
 # VARIABLES
 run = "True"
