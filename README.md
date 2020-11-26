@@ -10,7 +10,7 @@ old and doesn't offer Email Notification.
 
 - **virtual environment**
 Install and enable venv before installing anything, like selenium:  
->sudo python3 -m venv env
+>sudo python3 -m venv env  
 >source venv/bin/activate
 
 - **selenium==3.141.0**   
