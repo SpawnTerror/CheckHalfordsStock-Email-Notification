@@ -101,7 +101,7 @@ class bocik(object):
         # screening
         self.driver.save_screenshot('3sizechoiceclicked.png')
 
-        self.driver.execute_script("window.scrollTo(0, 1080)")
+        self.driver.execute_script("window.scrollTo(0, 1380)")
         time.sleep(2)
 
         # screening
