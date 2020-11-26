@@ -2,5 +2,4 @@
 /.vscode
 __pycache__/selenium.cpython-39.pyc
 geckodriver.log
-config.ini
-mailer.py
+config.py
