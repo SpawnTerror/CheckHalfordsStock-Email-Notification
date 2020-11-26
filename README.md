@@ -23,6 +23,10 @@ create this file next to check_stock.py and insert these lines replacing what's 
 >mailFromAddress = "sender_email_account"  
 >mailFromServer = "smtp.gmail.com:587"  
 >mailFromPassword = "less_secure_apps_passowrd"  
+  
+- **gecko Firefox driver**  
+Can be found here:  
+>https://github.com/mozilla/geckodriver/releases  
 
 # Contact / Questions  
   
