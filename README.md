@@ -6,6 +6,15 @@ Overcomplicated Python3.9 script to check stock availablity using 'add to basket
 Written to enable me to check if the item I want is already purchasable, as the website is
 old and doesn't offer Email Notification.
 
+# How to  
+  
+Install venv, get selenium, get gecko driver Firefox.   
+Edit main check_stock.py file, it contains hard-coded item link.  
+If something doesn't work, check the screenshots that the script produces 
+every step and see if it's scrolling down enough to render elements.
+It is a small hack script, but could possibly come handy for someone
+visiting Halfords.
+
 # Requirements
 
 - **virtual environment**
